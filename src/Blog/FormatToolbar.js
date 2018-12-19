@@ -1,6 +1,6 @@
 import React from "react";
 
-const FormatToolbar = (props) => (
+const FormatToolbar = (props) =>(
 	<div className="format-toolbar">{props.children}</div>
 );
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import TextEditor from './Components/TextEditor'
+import TextEditor from './Blog/TextEditor'
 class App extends Component {
   render() {
-    return (
+    return(
       <div>
         <TextEditor/>
       </div>

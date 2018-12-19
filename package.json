@@ -10,6 +10,7 @@
     "react-icons-kit": "^1.2.1",
     "react-scripts": "2.1.1",
     "slate": "^0.44.9",
+    "slate-drop-or-paste-images": "^0.9.1",
     "slate-react": "^0.21.15"
   },
   "scripts": {
