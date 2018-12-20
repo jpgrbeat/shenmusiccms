@@ -31,6 +31,8 @@ const textSize3Plugin = MarkHotKey({
   type: 'textsize3',
   key: '3'
 })
+
+const plugins = [boldPlugin,italicPlugin,underlinePlugin,textSize1Plugin,textSize2Plugin,textSize3Plugin]
 class TextEditor extends React.Component {
   // Set the initial value when the app is first constructed.
   state = {
@@ -44,43 +46,14 @@ class TextEditor extends React.Component {
     localStorage.setItem('content', content)
   }
 
-  onKeyDown=(event,editor,next)=>{
-    if(!event.ctrlKey && !event.metaKey){
-       return next();
-     }
-
-    switch(event.key){
-      case 'b':{
-        event.preventDefault()
-        editor.toggleMark('bold')
-        break;
-      }
-      case 'i':{
-        event.preventDefault()
-        editor.toggleMark('italic')
-        break;
-      }
-      case 'u':{
-        event.preventDefault()
-        editor.toggleMark('underline')
-        break;
-      }
-      case '1':{
-        break;
-      }
-      default:{
-        return next()
-      }
-    }
-  }
 
   // Render the editor.
   render() {
     return(
       <Editor
+        plugins={plugins}
         value={this.state.value}
         onChange={this.onChange}
-        onKeyDown={this.onKeyDown}
         renderMark={this.renderMark}
       />
     )
@@ -96,6 +69,15 @@ class TextEditor extends React.Component {
       }
       case 'underline':{
         return <UnderlineMark {...props}/>
+      }
+      case 'textsize1':{
+        return <h1>{props.children}</h1>
+      }
+      case 'textsize2':{
+        return <h2>{props.children}</h2>
+      }
+      case 'textsize3':{
+        return <h3>{props.children}</h3>
       }
       default:{
         return next()
